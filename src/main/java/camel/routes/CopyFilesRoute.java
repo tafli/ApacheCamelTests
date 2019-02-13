@@ -1,4 +1,4 @@
-package ApacheCamelTests;
+package camel.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 

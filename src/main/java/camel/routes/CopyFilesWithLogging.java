@@ -1,10 +1,10 @@
-package ApacheCamelTests;
+package camel.routes;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 
-public class CopyFilesMultiRoute {
+public class CopyFilesWithLogging {
     public static void main(String... args) {
         CamelContext ctx = new DefaultCamelContext();
 
@@ -13,11 +13,8 @@ public class CopyFilesMultiRoute {
                 @Override
                 public void configure() {
                     from("file:data/input?noop=true")
-                            .to("file:data/output")
-                            .to("file:data/output/backup");
-
-                    from("file:data/input2?noop=true")
-                            .to("file:data/output2");
+                            .to("log:?level=INFO&showBody=true&showHeaders=true")
+                            .to("file:data/output");
                 }
             });
 
