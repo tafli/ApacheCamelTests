@@ -13,7 +13,7 @@ public class ModifyTransformRouteTest extends CamelTestSupport {
 
 
     @Test
-    public void transformTest() throws InterruptedException {
+    public void transformTest() {
         String inputValue = "123,456,789";
         String expectedValue = "123*456*789";
 

@@ -4,7 +4,7 @@ import org.apache.camel.builder.RouteBuilder;
 
 public class ModifyTransformRoute extends RouteBuilder {
     @Override
-    public void configure() throws Exception {
+    public void configure() {
         from("direct:transformInput")
                 .log("Received message BEFORE transform is ${body} and Headers are ${headers}")
                 .transform(body().regexReplaceAll(",","*"))
